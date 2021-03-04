@@ -2,7 +2,7 @@ package tn.esprit.service;
 
 import java.util.List;
 
-import tn.esprit.spring.entities.Activity;
+import tn.esprit.entities.Activity;
 
 public interface Activity_Service {
 

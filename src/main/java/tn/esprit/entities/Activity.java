@@ -1,16 +1,19 @@
-package tn.esprit.spring.entities;
+package tn.esprit.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Event implements Serializable {
+public class Activity implements Serializable {
+
 	/**
 	 * 
 	 */
@@ -18,25 +21,26 @@ public class Event implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String name;
 	private String object;
-	private Date beginDate;
-	private Date endDate;
+	private String type;
+	private Date creationDate;
 
 	@ManyToOne
 	private KinderGarten KG;
 
-	public Event() {
+	@OneToMany(mappedBy = "activity")
+	private Set<ActivityComment> comments;
+
+	public Activity() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Event(String name, String object, Date beginDate, Date endDate) {
+	public Activity(String object, String type, Date creationDate) {
 		super();
-		this.name = name;
 		this.object = object;
-		this.beginDate = beginDate;
-		this.endDate = endDate;
+		this.type = type;
+		this.creationDate = creationDate;
 	}
 
 	public int getId() {
@@ -47,14 +51,6 @@ public class Event implements Serializable {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getObject() {
 		return object;
 	}
@@ -63,20 +59,28 @@ public class Event implements Serializable {
 		this.object = object;
 	}
 
-	public Date getBeginDate() {
-		return beginDate;
+	public String getType() {
+		return type;
 	}
 
-	public void setBeginDate(Date beginDate) {
-		this.beginDate = beginDate;
+	public void setType(String type) {
+		this.type = type;
 	}
 
-	public Date getEndDate() {
-		return endDate;
+	public Date getCreationDate() {
+		return creationDate;
 	}
 
-	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
+	}
+
+	public KinderGarten getKG() {
+		return KG;
+	}
+
+	public void setKG(KinderGarten kG) {
+		KG = kG;
 	}
 
 }

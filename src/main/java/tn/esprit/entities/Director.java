@@ -1,4 +1,4 @@
-package tn.esprit.spring.entities;
+package tn.esprit.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 
 @Entity
-public class GardenManager extends User implements Serializable {
+public class Director extends User implements Serializable {
 
 	/**
 	 * 

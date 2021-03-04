@@ -13,8 +13,11 @@
 	<version>1.0</version>
 	<name>SpringDotnetPI</name>
 	<description>Demo project for Spring Boot</description>
-	<properties>
+<properties>
 		<java.version>1.8</java.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>

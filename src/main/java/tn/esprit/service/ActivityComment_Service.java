@@ -2,7 +2,7 @@ package tn.esprit.service;
 
 import java.util.List;
 
-import tn.esprit.spring.entities.ActivityComment;
+import tn.esprit.entities.ActivityComment;
 
 public interface ActivityComment_Service {
 	public void addActivityComment(ActivityComment act);
