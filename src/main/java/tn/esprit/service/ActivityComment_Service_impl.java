@@ -11,43 +11,7 @@ import tn.esprit.entities.ActivityComment;
 @Service
 public class ActivityComment_Service_impl implements ActivityComment_Service {
 
-	@Override
-	public void addActivityComment(ActivityComment act) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void updateActivityComment(ActivityComment act) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteActivityComment(ActivityComment act) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteActivityCommentById(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public ActivityComment retrieveActivityCommentById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<ActivityComment> retrieveAllActivityComment() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
-/*	
 @Autowired 	
 ActivityComment_repository actcom_rep;
 
@@ -86,5 +50,5 @@ ActivityComment_repository actcom_rep;
 		// TODO Auto-generated method stub
 		return (List<ActivityComment>) actcom_rep.findAll();
 	}
-*/
+
 }

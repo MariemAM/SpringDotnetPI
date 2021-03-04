@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -23,11 +24,11 @@ public class ActivityComment implements Serializable {
 	private String content;
 	private Date creationDate;
 
-	@ManyToOne
-	@JoinColumn(name = "idActivity", referencedColumnName = "id", insertable = false, updatable = false)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "idActivity", nullable = false, insertable = false, updatable = false)
 	private Activity activity;
-	@ManyToOne
-	@JoinColumn(name = "idUser", referencedColumnName = "id", insertable = false, updatable = false)
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "idUser",nullable = false, insertable = false, updatable = false)
 	private User user;
 
 	public String getContent() {
