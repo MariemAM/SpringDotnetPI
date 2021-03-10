@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +15,8 @@ import javax.persistence.ManyToOne;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "role")
+@DiscriminatorColumn(discriminatorType = DiscriminatorType.STRING, name = "role")
+
 public class Relation implements Serializable {
 
 	/**
@@ -31,6 +33,22 @@ public class Relation implements Serializable {
 
 	@ManyToOne
 	private InscriptionKid inscriptionKid;
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public InscriptionKid getInscriptionKid() {
+		return inscriptionKid;
+	}
+
+	public void setInscriptionKid(InscriptionKid inscriptionKid) {
+		this.inscriptionKid = inscriptionKid;
+	}
 
 	public String getObject() {
 		return object;

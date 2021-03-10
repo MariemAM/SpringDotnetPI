@@ -2,9 +2,11 @@ package tn.esprit.spring.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("complaint")
 public class Complaint extends Relation implements Serializable {
 
 	/**
