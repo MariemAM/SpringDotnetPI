@@ -20,5 +20,11 @@ public interface EventRepository extends CrudRepository<Event, Integer> {
 	@Modifying
 	@Query(value = "update event e set kg_id = :ref where e.id = :eventId ", nativeQuery = true)
 	void affectEventToKG(@Param("ref") int ref, @Param("eventId") int eventId);
-
+	
+	@Transactional(propagation = Propagation.REQUIRES_NEW)
+	@Modifying
+	@Query(value = "update event e set kg_id = NULL where e.id = :eventId and kg_id =:ref ", nativeQuery = true)
+	void desaffectEventToKG(@Param("ref") int ref, @Param("eventId") int eventId);
+	
+    
 }

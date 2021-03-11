@@ -48,13 +48,17 @@ public class EventService implements IEventService {
 	}
 
 	@Override
-	public void desaffectEvent(int idKG, int idEvent) {
-//		KinderGarten kg = kgrepository.findById(idKG).get();
-//		Event event = repository.findById(idEvent).get();
-//		if (!ObjectUtils.isEmpty(event) && !ObjectUtils.isEmpty(kg)) {
-//			kg.getEvents().remove( kg.getEvents().indexOf(event));
-//			//kg.getEvents().remove(event);
-//		}
+	public void desaffectEventToKG(int idKG, int idEvent) {
+		// TODO Auto-generated method stub
+		repository.desaffectEventToKG(idKG, idEvent);
+	}
+
+	@Override
+	public boolean participate(int idUser, int idEvent, int idKG) {
+		// TODO Auto-generated method stub
+		Event event=repository.findById(idEvent).get();
+		
+		return false;
 	}
 
 }

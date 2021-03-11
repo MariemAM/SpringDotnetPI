@@ -16,6 +16,7 @@ public interface IEventService {
 
 	public void affectEventToKG(int idKG, int idEvent);
 
-	public void desaffectEvent(int idKG, int idEvent);
-
+	public void desaffectEventToKG(int idKG, int idEvent) ;
+   
+	public boolean participate(int idUser,int idEvent,int idKG);
 }

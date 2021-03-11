@@ -2,6 +2,7 @@ package tn.esprit.spring.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -24,6 +25,9 @@ public class InscriptionKid implements Serializable {
 	private String kidName;
 	private Date birthDate;
 
+	@OneToMany(mappedBy = "kid")
+	private List<Participation> participations; 
+	
 	@ManyToOne
 	private KinderGarten KG;
 
@@ -31,7 +35,7 @@ public class InscriptionKid implements Serializable {
 	private Parent parent;
 
 	@OneToMany(mappedBy = "inscriptionKid")
-	private Set<Relation> relation;
+	private Set<Relation> relations;
 
 	public InscriptionKid() {
 		super();

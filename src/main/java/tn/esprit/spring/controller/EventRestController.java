@@ -52,9 +52,9 @@ public class EventRestController {
 	public void affectEventToKG(@PathVariable("idKG") int idKG, @PathVariable("idEvent") int idEvent) {
 		eventservice.affectEventToKG(idKG, idEvent);
 	}
-//	@PutMapping(value = "/desaffectEvent/{idKG}/{idEvent}")
-//	public void affectEvent(@PathVariable("idKG") int idKG, @PathVariable("idEvent") int idEvent) {
-//		eventservice.desaffectEvent(idKG, idEvent);
-//	}
+	@PutMapping(value = "/desaffectEvent/{idKG}/{idEvent}")
+	public void desaffectEvent(@PathVariable("idKG") int idKG, @PathVariable("idEvent") int idEvent) {
+		eventservice.desaffectEventToKG(idKG, idEvent);;
+	}
 
 }
