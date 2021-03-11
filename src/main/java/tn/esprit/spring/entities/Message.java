@@ -2,9 +2,12 @@ package tn.esprit.spring.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -15,11 +18,20 @@ public class Message implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	@EmbeddedId
-	private MessagePk messagepk;
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int id;
+	private String sender;
+	private int idParent1;
+	private int idParent2;
 	private Date creationDate;
 	private String object;
+	@Enumerated(EnumType.STRING)
+	private MessageType type;
+
+	public enum MessageType {
+		CHAT, LEAVE, JOIN
+	}
 
 	@ManyToOne
 	@JoinColumn(name = "idParent1", referencedColumnName = "id", insertable = false, updatable = false)
@@ -28,20 +40,12 @@ public class Message implements Serializable {
 	@JoinColumn(name = "idParent2", referencedColumnName = "id", insertable = false, updatable = false)
 	private Parent parent2;
 
-	public MessagePk getMessagepk() {
-		return messagepk;
+	public String getSender() {
+		return sender;
 	}
 
-	public void setMessagepk(MessagePk messagepk) {
-		this.messagepk = messagepk;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
+	public void setSender(String sender) {
+		this.sender = sender;
 	}
 
 	public String getObject() {
@@ -50,6 +54,38 @@ public class Message implements Serializable {
 
 	public void setObject(String object) {
 		this.object = object;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getIdParent1() {
+		return idParent1;
+	}
+
+	public void setIdParent1(int idParent1) {
+		this.idParent1 = idParent1;
+	}
+
+	public int getIdParent2() {
+		return idParent2;
+	}
+
+	public void setIdParent2(int idParent2) {
+		this.idParent2 = idParent2;
+	}
+
+	public Date getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(Date creationDate) {
+		this.creationDate = creationDate;
 	}
 
 }
