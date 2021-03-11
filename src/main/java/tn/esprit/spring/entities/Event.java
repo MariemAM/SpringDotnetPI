@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -26,7 +27,9 @@ public class Event implements Serializable {
 	private String object;
 	private Date beginDate;
 	private Date endDate;
+	@Column(name = "nbr_participate", nullable = true)
 	private int nbrparticipants;
+	@Column(name = "max_number", nullable = true)
 	private int max_number;
 
 	private double charge;
@@ -52,6 +55,25 @@ public class Event implements Serializable {
 		this.object = object;
 		this.beginDate = beginDate;
 		this.endDate = endDate;
+	}
+	
+
+	public Event(int id, String name, String object, Date beginDate, Date endDate, int nbrparticipants, int max_number,
+			double charge, double ticket_price, TypeEvent typeEvent, List<Participation> participations,
+			KinderGarten kG) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.object = object;
+		this.beginDate = beginDate;
+		this.endDate = endDate;
+		this.nbrparticipants = nbrparticipants;
+		this.max_number = max_number;
+		this.charge = charge;
+		this.ticket_price = ticket_price;
+		this.typeEvent = typeEvent;
+		this.participations = participations;
+		KG = kG;
 	}
 
 	public int getNbrparticipants() {

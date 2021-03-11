@@ -56,7 +56,7 @@ public class EventRestController {
 	public void desaffectEvent(@PathVariable("idKG") int idKG, @PathVariable("idEvent") int idEvent) {
 		eventservice.desaffectEventToKG(idKG, idEvent);;
 	}
-	@PostMapping("/participate/{idevent}/{idkg}/{idkid}")//return kid
+	@PostMapping("/participate/{idevent}/{idkg}/{idkid}")
 	public void addEvent(@PathVariable("idevent") int idEvent, @PathVariable("idkg") int idKG,@PathVariable("idkid") int idkid) {
 		eventservice.participate(idkid, idEvent, idKG);
 	}
