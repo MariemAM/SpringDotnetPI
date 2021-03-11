@@ -13,6 +13,13 @@ public class ParticipationFK implements Serializable{
 	private static final long serialVersionUID = 1L;
 	private int idKid;
 	private int idEvent;
+	
+	
+	public ParticipationFK(int idKid, int idEvent) {
+		super();
+		this.idKid = idKid;
+		this.idEvent = idEvent;
+	}
 	public int getIdKid() {
 		return idKid;
 	}

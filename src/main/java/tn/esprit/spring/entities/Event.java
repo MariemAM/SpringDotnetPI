@@ -26,16 +26,18 @@ public class Event implements Serializable {
 	private String object;
 	private Date beginDate;
 	private Date endDate;
+	private int nbrparticipants;
+	private int max_number;
 
 	private double charge;
 	private double ticket_price;
-	
+
 	@Enumerated(EnumType.STRING)
 	private TypeEvent typeEvent;
 
 	@OneToMany(mappedBy = "event")
 	private List<Participation> participations;
-	
+
 	@ManyToOne
 	private KinderGarten KG;
 
@@ -52,6 +54,19 @@ public class Event implements Serializable {
 		this.endDate = endDate;
 	}
 
+	public int getNbrparticipants() {
+		return nbrparticipants;
+	}
+	public void setNbrparticipants(int nbrparticipants) {
+		this.nbrparticipants = nbrparticipants;
+	}
+	public int getMax_number() {
+		return max_number;
+	}
+	public void setMax_number(int max_number) {
+		this.max_number = max_number;
+	}
+	
 	public double getCharge() {
 		return charge;
 	}

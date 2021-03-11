@@ -16,9 +16,7 @@ public class Participation implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@EmbeddedId
 	private ParticipationFK participatefk;
-	private int nbrparticipants;
-	private int max_number;
-	
+		
 	@ManyToOne
 	@JoinColumn(name = "idEvent", referencedColumnName = "id", insertable = false, updatable = false)
 	private Event event;
@@ -31,18 +29,6 @@ public class Participation implements Serializable {
 	}
 	public void setParticipatefk(ParticipationFK participatefk) {
 		this.participatefk = participatefk;
-	}
-	public int getNbrparticipants() {
-		return nbrparticipants;
-	}
-	public void setNbrparticipants(int nbrparticipants) {
-		this.nbrparticipants = nbrparticipants;
-	}
-	public int getMax_number() {
-		return max_number;
-	}
-	public void setMax_number(int max_number) {
-		this.max_number = max_number;
 	}
 	
 

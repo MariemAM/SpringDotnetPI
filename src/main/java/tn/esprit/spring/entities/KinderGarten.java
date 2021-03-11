@@ -115,6 +115,23 @@ public class KinderGarten implements Serializable {
 	public void setEvents(Set<Event> events) {
 		this.events = events;
 	}
+
+	public Set<InscriptionKid> getInscriptionKids() {
+		return inscriptionKids;
+	}
+
+	public void setInscriptionKids(Set<InscriptionKid> inscriptionKids) {
+		this.inscriptionKids = inscriptionKids;
+	}
+
+	public Set<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(Set<User> users) {
+		this.users = users;
+	}
+	
 	
 
 }
