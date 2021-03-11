@@ -26,10 +26,7 @@ public interface EventRepository extends CrudRepository<Event, Integer> {
 	@Query(value = "update event e set kg_id = NULL where e.id = :eventId and kg_id =:ref ", nativeQuery = true)
 	void desaffectEventToKG(@Param("ref") int ref, @Param("eventId") int eventId);
 	
-	@Transactional
-	@Modifying
-	@Query(value="insert into participation (id_event, id_kid) VALUES (:idEvent, :idKid)",nativeQuery=true)
-	public void participate(@Param("idEvent") Integer idEvent, @Param("idKid") Integer idKid);
+	
 	
     
 }

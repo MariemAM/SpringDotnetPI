@@ -139,4 +139,13 @@ public class Event implements Serializable {
 		this.endDate = endDate;
 	}
 
+	public List<Participation> getParticipations() {
+		return participations;
+	}
+
+	public void setParticipations(List<Participation> participations) {
+		this.participations = participations;
+	}
+	
+
 }
