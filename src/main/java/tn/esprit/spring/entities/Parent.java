@@ -4,7 +4,11 @@ import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
+
+import org.springframework.data.annotation.Id;
 
 @Entity
 public class Parent extends User implements Serializable {
@@ -13,8 +17,18 @@ public class Parent extends User implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private boolean delegate;
+	
+	public int getId() {
+		return id;
+	}
 
+	public void setId(int id) {
+		this.id = id;
+	}
+	@org.springframework.data.annotation.Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+	private boolean delegate;
 	@OneToMany(mappedBy = "parent")
 	private Set<InscriptionKid> inscriptionKids;
 
